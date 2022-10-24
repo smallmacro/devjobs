@@ -57,29 +57,25 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- [Vite](https://vitejs.dev/) - React Tooling
+- [React Router](https://reactrouter.com/en/main) - React Router
+- [Tailwind Css](https://tailwindcss.com/) - For styles
 
 ### What I learned
 
-1. When aligning items along the main axis, auto margins are the way to go.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+1. Flexbox or Grid: When aligning items along the main axis, auto margins are the way to go.
+2. In tailwind-css `prefers-color-scheme` can be automatically triggered by setting the classname `dark:` or triggered by manually.
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- Manually select the `prefers-color-scheme`
+- Setting the router using the newest version of React Router
+- Loading the data from the json file
+- construct the backend needed for the api service + Database.
+- Add Unit test.
 
 ### Useful resources
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
-
 ## Author
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
 
 ## Acknowledgments
