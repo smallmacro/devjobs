@@ -66,15 +66,38 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 1. Flexbox or Grid: When aligning items along the main axis, auto margins are the way to go.
 2. In tailwind-css `prefers-color-scheme` can be automatically triggered by setting the classname `dark:` or triggered by manually.
 
+   ```javascript
+   const [checked, setChecked] = useState(false);
+   useEffect(() => {
+     if (
+       checked ||
+       localStorage.theme === "dark" ||
+       (!("theme" in localStorage) &&
+         window.matchMedia("(prefers-color-scheme: dark)").matches)
+     ) {
+       document.documentElement.classList.add("dark");
+     } else {
+       document.documentElement.classList.remove("dark");
+     }
+
+     return () => {};
+   }, [localStorage, checked]);
+   ```
+
+3. React Router enable to define the `loader` function to load data before loading the component
+4. Stop Propagation from children elemement to parent element by using `event.stopPropagation()`
+
 ### Continued development
 
-- Manually select the `prefers-color-scheme`
-- Setting the router using the newest version of React Router
 - Loading the data from the json file
 - construct the backend needed for the api service + Database.
 - Add Unit test.
+- search and filter the jobs
 
 ### Useful resources
+
+- [React - Prevent Event Trigger on Parent From Child](https://stackoverflow.com/questions/37568550/react-prevent-event-trigger-on-parent-from-child)
+- [Toggling dark mode manually](https://v2.tailwindcss.com/docs/dark-mode)
 
 ## Author
 
