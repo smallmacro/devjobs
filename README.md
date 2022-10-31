@@ -86,13 +86,15 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 3. React Router enable to define the `loader` function to load data before loading the component
 4. Stop Propagation from children elemement to parent element by using `event.stopPropagation()`
+5. Setting Dynamic color tailwind css, such as `bg-[${themeColor}]` , is not working as it against the constraint of Tailwind css. The solution is to set inline-style within the element.
 
 ### Continued development
 
-- Loading the data from the json file
+- Add `jobs/:id` URL for per specified job.
+- search and filter the jobs
 - construct the backend needed for the api service + Database.
 - Add Unit test.
-- search and filter the jobs
+- deploy it with a docker.
 
 ### Useful resources
 
