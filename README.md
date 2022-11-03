@@ -87,12 +87,14 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 3. React Router enable to define the `loader` function to load data before loading the component
 4. Stop Propagation from children elemement to parent element by using `event.stopPropagation()`
 5. Setting Dynamic color tailwind css, such as `bg-[${themeColor}]` , is not working as it against the constraint of Tailwind css. The solution is to set inline-style within the element.
+6. [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) is a great tools for testing backend api functions.
+7. `nodemon` will watch the files in the directory in which nodemon was started, and if any files change, nodemon will automatically restart your node application.
 
 ### Continued development
 
-- Add `jobs/:id` URL for per specified job.
+- Load json data from backend
 - search and filter the jobs
-- construct the backend needed for the api service + Database.
+- connect the backend to Database(mongoDb)
 - Add Unit test.
 - deploy it with a docker.
 
@@ -100,6 +102,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 - [React - Prevent Event Trigger on Parent From Child](https://stackoverflow.com/questions/37568550/react-prevent-event-trigger-on-parent-from-child)
 - [Toggling dark mode manually](https://v2.tailwindcss.com/docs/dark-mode)
+-
 
 ## Author
 
