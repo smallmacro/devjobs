@@ -59,7 +59,9 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - [React](https://reactjs.org/) - JS library
 - [Vite](https://vitejs.dev/) - React Tooling
 - [React Router](https://reactrouter.com/en/main) - React Router
-- [Tailwind Css](https://tailwindcss.com/) - For styles
+- [Tailwind Css](https://tailwindcss.com/) - For styling component
+- Express
+- Axios
 
 ### What I learned
 
@@ -89,6 +91,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 5. Setting Dynamic color tailwind css, such as `bg-[${themeColor}]` , is not working as it against the constraint of Tailwind css. The solution is to set inline-style within the element.
 6. [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) is a great tools for testing backend api functions.
 7. `nodemon` will watch the files in the directory in which nodemon was started, and if any files change, nodemon will automatically restart your node application.
+8.
 
 ### Continued development
 
