@@ -59,7 +59,9 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - [React](https://reactjs.org/) - JS library
 - [Vite](https://vitejs.dev/) - React Tooling
 - [React Router](https://reactrouter.com/en/main) - React Router
-- [Tailwind Css](https://tailwindcss.com/) - For styles
+- [Tailwind Css](https://tailwindcss.com/) - For styling component
+- Express
+- Axios
 
 ### What I learned
 
