@@ -66,7 +66,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 ### What I learned
 
 1. Flexbox or Grid: When aligning items along the main axis, auto margins are the way to go.
-2. In tailwind-css `prefers-color-scheme` can be automatically triggered by setting the classname `dark:` or triggered by manually.
+2. In tailwind-css `prefers-color-scheme` can be automatically triggered by setting the classname `dark:` or triggered by manually.`window.matchMedia('(prefers-color-scheme: dark)').matches` is true in Chrome while is false in Firefox.
 
    ```javascript
    const [checked, setChecked] = useState(false);
@@ -101,11 +101,12 @@ git push origin --delete test
 
 ### Continued development
 
-- Load json data from backend
+- ~~Load json data from backend~~
+- configure the base url in react router.
 - search and filter the jobs
 - connect the backend to Database(mongoDb)
 - Add Unit test.
-- deploy it with a docker.
+- ~~deploy it with a docker.~~(Automatically done while delpoy to flyio)
 
 ### Useful resources
 
