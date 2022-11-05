@@ -98,15 +98,17 @@ git push origin --delete test
 ```
 
 9. deploy to fly.io. `fly launch` `fly deploy`
+10. Github Pages does not support dynamic route.
 
 ### Continued development
 
 - ~~Load json data from backend~~
-- configure the base url in react router.
+- ~~configure the base url in react router.~~
 - search and filter the jobs
 - connect the backend to Database(mongoDb)
 - Add Unit test.
 - ~~deploy it with a docker.~~(Automatically done while delpoy to flyio)
+- deploy the whole app to fly.io
 
 ### Useful resources
 
