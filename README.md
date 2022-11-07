@@ -99,16 +99,19 @@ git push origin --delete test
 
 9. deploy to fly.io. `fly launch` `fly deploy`
 10. Github Pages does not support dynamic route.
+11. React router loader function only suggest a timing to preload the data needed to render components, but it does not serve as a cache.
 
 ### Continued development
 
 - ~~Load json data from backend~~
 - ~~configure the base url in react router.~~
-- search and filter the jobs
+- search and filter the jobs(define the query api in backend, and abstract all data query methods into a single module)
+- ~~deploy it with a docker.~~(Automatically done while delpoy to flyio)
+- Use `React Query` in the loader function as a cache.
+- Abstract the data operations into a single module
+- deploy the whole app to fly.io
 - connect the backend to Database(mongoDb)
 - Add Unit test.
-- ~~deploy it with a docker.~~(Automatically done while delpoy to flyio)
-- deploy the whole app to fly.io
 
 ### Useful resources
 
