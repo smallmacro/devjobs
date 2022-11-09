@@ -105,11 +105,12 @@ git push origin --delete test
 
 - ~~Load json data from backend~~
 - ~~configure the base url in react router.~~
-- search and filter the jobs(define the query api in backend, and abstract all data query methods into a single module)
+- ~~search and filter the jobs~~
 - ~~deploy it with a docker.~~(Automatically done while delpoy to flyio)
 - Use `React Query` in the loader function as a cache.
-- Abstract the data operations into a single module
+- ~~Extract communicaiton with the backend into a seperate module~~
 - deploy the whole app to fly.io
+- Load more request function
 - connect the backend to Database(mongoDb)
 - Add Unit test.
 
