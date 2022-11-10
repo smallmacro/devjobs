@@ -114,7 +114,7 @@ git push origin --delete test
 - ~~deploy it with a docker.~~(Automatically done while delpoy to flyio)
 - Use `React Query` ~~in the loader function~~ as a cache.(done)
 - ~~Extract communicaiton with the backend into a seperate module~~
-- deploy the whole app to fly.io
+- ~~deploy the whole app to fly.io~~
 - Load more request function
 - connect the backend to Database(mongoDb)
 - Add Unit test.
@@ -123,7 +123,7 @@ git push origin --delete test
 
 - [React - Prevent Event Trigger on Parent From Child](https://stackoverflow.com/questions/37568550/react-prevent-event-trigger-on-parent-from-child)
 - [Toggling dark mode manually](https://v2.tailwindcss.com/docs/dark-mode)
--
+- [fullstack open course](https://fullstackopen.com/en/)
 
 ## Author
 
