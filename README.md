@@ -16,8 +16,6 @@ This is a solution to the [Devjobs web app challenge on Frontend Mentor](https:/
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
 
 ### The challenge
@@ -32,20 +30,14 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![mobile](./mobile.gif)
+![tablet](./tablet.gif)
+![desktop](./desktop.gif)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [github url](https://github.com/smallmacro/smallmacro.github.io/tree/main/challenge6)
+- Live Site URL: [Devjobs](https://devjobs.fly.dev/)
 
 ## My process
 
@@ -61,7 +53,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - [React Router](https://reactrouter.com/en/main) - React Router
 - [Tailwind Css](https://tailwindcss.com/) - For styling component
 - Express
-- Axios
+- React Query
 
 ### What I learned
 
@@ -100,6 +92,19 @@ git push origin --delete test
 9. deploy to fly.io. `fly launch` `fly deploy`
 10. Github Pages does not support dynamic route.
 11. React router loader function only suggest a timing to preload the data needed to render components, but it does not serve as a cache.
+12. Streaming deploying of the frontend
+
+```json
+{
+  "scripts": {
+    // ...
+    "build:ui": "rm -rf dist && cd ../frontend && npm run build && cp -r dist/ ../server",
+    "dev": "nodemon index.js",
+    "deploy": "fly deploy",
+    "deploy:full": "npm run build:ui && npm run deploy"
+  }
+}
+```
 
 ### Continued development
 
@@ -107,7 +112,7 @@ git push origin --delete test
 - ~~configure the base url in react router.~~
 - ~~search and filter the jobs~~
 - ~~deploy it with a docker.~~(Automatically done while delpoy to flyio)
-- Use `React Query` in the loader function as a cache.
+- Use `React Query` ~~in the loader function~~ as a cache.(done)
 - ~~Extract communicaiton with the backend into a seperate module~~
 - deploy the whole app to fly.io
 - Load more request function
