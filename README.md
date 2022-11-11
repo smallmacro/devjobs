@@ -116,7 +116,9 @@ git push origin --delete test
 - ~~Extract communicaiton with the backend into a seperate module~~
 - ~~deploy the whole app to fly.io~~
 - Load more request function
-- connect the backend to Database(mongoDb)
+- ~~connect the backend to Database(mongoDb)~~
+- Implement the CRUD operations for job.
+- Fix the `jobs/:id` path;
 - Add Unit test.
 
 ### Useful resources
