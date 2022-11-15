@@ -81,7 +81,7 @@ Users should be able to:
 3. React Router enable to define the `loader` function to load data before loading the component
 4. Stop Propagation from children elemement to parent element by using `event.stopPropagation()`
 5. Setting Dynamic color tailwind css, such as `bg-[${themeColor}]` , is not working as it against the constraint of Tailwind css. The solution is to set inline-style within the element.
-6. [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) is a great tools for testing backend api functions.
+6. [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) is a great tools for testing backend api functions. Can't figure out how to post a Array data .
 7. `nodemon` will watch the files in the directory in which nodemon was started, and if any files change, nodemon will automatically restart your node application.
 8. Deleting remote branches.To delete a remote branch, you can’t use the git branch command. Instead, use the git push command with --delete flag, followed by the name of the branch you want to delete. You also need to specify the remote name (origin in this case) after git push.
 
@@ -106,6 +106,8 @@ git push origin --delete test
 }
 ```
 
+13. redirect the `Express` get requests to `/dist/index.html` to prevent the `can not get /jobs/:id error` when refreshing the path.
+
 ### Continued development
 
 - ~~Load json data from backend~~
@@ -117,8 +119,10 @@ git push origin --delete test
 - ~~deploy the whole app to fly.io~~
 - Load more request function
 - ~~connect the backend to Database(mongoDb)~~
-- Implement the CRUD operations for job.
-- Fix the `jobs/:id` path;
+- ~~Implement the CRUD operations in the backend.~~
+- ~~Fix the `jobs/:id` path;~~
+- ~~Use `mongoose` as mongodb modeling,validation for node.js~~
+- Add User profile utillties.(User can register, reset password, update profile, email verificaiton )
 - Add Unit test.
 
 ### Useful resources
