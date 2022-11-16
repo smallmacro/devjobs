@@ -117,19 +117,24 @@ git push origin --delete test
 - Use `React Query` ~~in the loader function~~ as a cache.(done)
 - ~~Extract communicaiton with the backend into a seperate module~~
 - ~~deploy the whole app to fly.io~~
-- Load more request function
 - ~~connect the backend to Database(mongoDb)~~
 - ~~Implement the CRUD operations in the backend.~~
 - ~~Fix the `jobs/:id` path;~~
 - ~~Use `mongoose` as mongodb modeling,validation for node.js~~
-- Add User profile utillties.(User can register, reset password, update profile, email verificaiton )
-- Add Unit test.
+- ~~Add Unit test for job related api function.~~
+- ~~Add User model~~
+- Add utils functions.(User can register,login, reset password, update profile, email verificaiton)
+- Add role authentication and authorization
+- Session and Cache managment.
+- `Load More` or pagination
 
 ### Useful resources
 
 - [React - Prevent Event Trigger on Parent From Child](https://stackoverflow.com/questions/37568550/react-prevent-event-trigger-on-parent-from-child)
 - [Toggling dark mode manually](https://v2.tailwindcss.com/docs/dark-mode)
 - [fullstack open course](https://fullstackopen.com/en/)
+- [Pagination vs. Infinite Scroll vs. Load More Explained](https://crocoblock.com/blog/pagination-vs-infinite-scroll/)
+- [Node.js User Authentication Guide](https://blog.loginradius.com/engineering/guest-post/nodejs-authentication-guide/)
 
 ## Author
 
