@@ -108,6 +108,28 @@ git push origin --delete test
 
 13. redirect the `Express` get requests to `/dist/index.html` to prevent the `can not get /jobs/:id error` when refreshing the path.
 
+14. In Test-Driven Development, we write the test function bedore the actual implementation of functions.
+
+15. `Mongoose` do the similar join operation like relational database by usinbg `populate`.The functionality of the `populate` method of Mongoose is based on the fact that we have defined "types" to the references in the Mongoose schema with the ref option:
+
+```javascript
+const users = await User.find({}).populate("jobs", { comapny: 1, postion: 1 });
+//{company: 1,postion:1} means choosing the fields we want to include, like the Mongo syntax
+
+response.json(users);
+```
+
+16. Problems of Token-based authentication
+
+- If a token without limited time, the server cannot revoke the access right of token holder
+- If a token with limited time, the shorter the expiration time, the more safe the solution is, but the user must login to the system more frequently
+  - (server side session,regular database is complicated and slower)save the info about each token to backend database and check each API request if the access right corresponding to the token is still valid.
+  - (key-value database such as Redis) save the session corresponding to a token to a key-value-database.
+  - token is quite often just a random string, not including any information about the user.
+  - For each API request, the server fectched the relevant information about the identity of the user from the database.
+  - Instead of using authorization-header, cookies are used for transfering the token between the client and th server.
+  - Usernames, passwords and applications using token authentication must always be used over HTTPS.
+
 ### Continued development
 
 - ~~Load json data from backend~~
