@@ -54,6 +54,8 @@ Users should be able to:
 - [Tailwind Css](https://tailwindcss.com/) - For styling component
 - Express
 - React Query
+- Jest and react-test-library for backend intergation test
+- Cypress for E2E tesing
 
 ### What I learned
 
@@ -129,6 +131,25 @@ response.json(users);
   - For each API request, the server fectched the relevant information about the identity of the user from the database.
   - Instead of using authorization-header, cookies are used for transfering the token between the client and th server.
   - Usernames, passwords and applications using token authentication must always be used over HTTPS.
+  - Due to the consideration of risks of XSS(Cross Site Scripting) attacks, saving a token in the local storage is not a good idea.
+  - HttpOnly cookies may be a good option.
+
+17. `Snapshot` testing is to compare the HTML code defined by the component after it has changed to the HTML code that existed before it was changed.
+18. Cypress is a powerfull tool for End to End testing.`it.only` will tell cypress to only run these test case instead of automatically running all of them. Cypress also enable to define customer command.
+
+```javascript
+Cypress.Commands.add("login", ({ username, password }) => {
+  cy.request("POST", "http://localhost:3001/api/login", {
+    username,
+    password,
+  }).then(({ body }) => {
+    localStorage.setItem("loggodJobUser", JSON.stringify(body));
+    cy.visit("http://localhost:3000");
+  });
+});
+```
+
+when running E2E test, it is the best to empty the database and possibly format it before the tests are run.
 
 ### Continued development
 
@@ -145,9 +166,15 @@ response.json(users);
 - ~~Use `mongoose` as mongodb modeling,validation for node.js~~
 - ~~Add Unit test for job related api function.~~
 - ~~Add User model~~
-- Add utils functions.(User can register,login, reset password, update profile, email verificaiton)
+- Add utils functions.
+  - user register
+  - ~~user login~~
+  - user log out. `window.localStorage.clear()` or `window.localStorage.reomveItem('loggedJobUser')`
+  - user edit profile
+  - email verification
+  - user reset password
 - Add role authentication and authorization
-- Session and Cache managment.
+- Server Side Session and client side localStorage .
 - `Load More` or pagination
 
 ### Useful resources
