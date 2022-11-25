@@ -56,6 +56,7 @@ Users should be able to:
 - React Query
 - Jest and react-test-library for backend intergation test
 - Cypress for E2E tesing
+- Vitest for Frontend Unit testing
 
 ### What I learned
 
@@ -151,6 +152,182 @@ Cypress.Commands.add("login", ({ username, password }) => {
 
 when running E2E test, it is the best to empty the database and possibly format it before the tests are run.
 
+19. Useful libraries
+
+- [loadash](https://www.npmjs.com/package/lodash) for handling complicated data
+- [date-fns](https://github.com/date-fns/date-fns) for handle time and dates
+- [recharts](https://recharts.org/en-US/) for displaying graphs
+- [ React Google Analytics](https://github.com/react-ga/react-ga) for gathering of analytics data
+
+20. GraphQL. A `schema` describes the data sent between the cilent and the server. GraphQL query describes only the data moving between a server and the client. GraphQL API uses can be saved into a relational database, documnet database, or to other servers which a GraphQL server can access with for example
+
+```javascript
+//Schema
+const typeDefs = gql`
+type Person {
+  name: String!
+  phone: String
+  street: String!
+  city: String!
+  id: ID!
+}
+
+type Query {
+  personCount: Int!
+  allPersons: [Person!]!
+  findPerson(name: String!): Person
+}
+`
+
+const resolvers = {
+  Query: {
+    personCount: () => persons.length,
+    allPersons: () => persons,
+    findPerson: (root, args) =>
+      persons.find(p => p.name === args.name)
+  }
+}
+
+
+//query
+query {
+  personCount
+}
+```
+
+21. GraphQL Server. pass `Schema` and `resolver` to `new ApolloServer()`. the GraphQL will provide default resolver for given shcema Type in some condition.
+
+```javascript
+const { ApolloServer, gql } = require('apollo-server')
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  //context given to all resolvers as their third parameter.
+  context: async ({ req }) => {
+    const auth = req ? req.headers.authorization : null
+    if (auth && auth.toLowerCase().startsWith('bearer ')) {
+      const decodedToken = jwt.verify(
+        auth.substring(7), JWT_SECRET
+      )
+      const currentUser = await User.findById(decodedToken.id).populate('friends')
+      return { currentUser }
+    }
+  }
+})
+
+mutation {
+  addPerson(
+    name: "Pekka Mikkola"
+    phone: "045-2374321"
+    street: "Vilppulantie 25"
+    city: "Helsinki"
+  ) {
+    name
+    phone
+    address{
+      city
+      street
+    }
+    id
+  }
+}
+```
+
+22. GraphQL Client. React application can communicate with a GraphQL Server using the client. By wrapping the App component, the client can be made accessible for all components of the application.
+    `npm install @apollo/client graphql`
+
+```javascript
+import {
+  ApolloClient,
+  ApolloProvider,
+  HttpLink,
+  InMemoryCache,
+} from "@apollo/client";
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: new HttpLink({
+    uri: "http://localhost:4000",
+  }),
+});
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <ApolloProvider client={client}>
+    <App />
+  </ApolloProvider>
+);
+
+// within the app component
+import { gql, useQuery } from "@apollo/client";
+const queryStr = gql`
+//
+`;
+const App = () => {
+  const result = useQuery(queryStr, {
+    pollInterval: 2000, // poll the server every 2000ms
+  });
+  //the result is an object with multiple fields.
+  if (result.loading) {
+    return <div>Loading...</div>;
+  }
+  //.....
+};
+
+//----------------------------------------
+// in order to use variables , we must  also name our queries
+const queryWithVariables = gql`
+  query findPersonByName($nameToSearch: String!) {
+    findPerson(name: $nameToSearch) {
+      name
+      phone
+      address {
+        street
+        city
+      }
+    }
+  }
+`;
+//----------------------------------------
+import { gql, useMutation } from "@apollo/client";
+//mutation
+const mutationStr = gql`
+  mutation createPerson(
+    $name: String!
+    $street: String!
+    $city: String!
+    $phone: String
+  ) {
+    addPerson(name: $name, street: $street, city: $city, phone: $phone) {
+      name
+      phone
+      id
+      address {
+        street
+        city
+      }
+    }
+  }
+`;
+//The hook returns an array, the first element of which contains the function to cause the mutation.
+const [createPerson] = useMutation(mutationStr);
+//The query variables receive values when the query is made:
+createPerson({ variables: { name, phone, street, city } });
+```
+
+22. The Apollo Client cannot automatically update the cache of an application,.
+    solutions:
+
+    - Add ` pollInterval: 2000` when using `useQuery` to poll the server every two seconds. Bad side: cause extro web traffice
+    - use `useMutation`'s `refectchQueries` parameter. Bad side: if one user now updates the state of the server, the changes do not show to other users immediately.
+
+    ```javascript
+    const [createPerson] = useMutation(CREATE_PERSON, {
+      refetchQueries: [{ query: ALL_PERSONS }],
+    });
+
+    //fragments
+    ```
+
 ### Continued development
 
 - ~~Load json data from backend~~
@@ -166,6 +343,7 @@ when running E2E test, it is the best to empty the database and possibly format 
 - ~~Use `mongoose` as mongodb modeling,validation for node.js~~
 - ~~Add Unit test for job related api function.~~
 - ~~Add User model~~
+- Fix the issue of loading invalid path of a job
 - Add utils functions.
   - user register
   - ~~user login~~
