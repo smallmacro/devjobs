@@ -328,6 +328,34 @@ createPerson({ variables: { name, phone, street, city } });
     //fragments
     ```
 
+23. The third type is Subscribtion.
+
+24. Add `nodemon` to enable auto-loading. Another alternative module is `ts-node-dev`
+
+25. Typescript Utility Types, `Pick` and `Omit`
+
+```javascript
+type DiaryEntry {
+  //...
+}
+
+export type NonSensitiveDiaryEntry = Omit<DiaryEntry, 'comment'>;
+
+  const getNonSensitiveEntries =
+    (): Pick<DiaryEntry, 'id' | 'date' | 'weather' | 'visibility'>[] => {
+      // ...
+    }
+```
+
+25. CI/CD pipeline. `Github Actions`,`workflows`, `jobs`. A typical execution of a workflow looks like this:
+
+- Triggering event happens(ex, a push to the main branch)
+- The workflow with that trigger is executed
+- Cleanup
+
+The hierarachy of a workflow:
+Workflow -> Job(run in Parallel) -> Step(run sequentially)
+
 ### Continued development
 
 - ~~Load json data from backend~~
