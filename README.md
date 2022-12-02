@@ -354,7 +354,60 @@ export type NonSensitiveDiaryEntry = Omit<DiaryEntry, 'comment'>;
 - Cleanup
 
 The hierarachy of a workflow:
-Workflow -> Job(run in Parallel) -> Step(run sequentially)
+Workflow -> Job(run in Parallel) ->A Step(run sequentially) performs an individual task(a customized action or any actions pubilished by the community)
+
+26. YAML configuration file.A basic workflow contains three elements in a YAML document:
+
+- name
+- on(triggers): the events that trigger the workflow to be executed. The events includes events on Github(someone pushes a commit to a repository), scheduled events( using the `cron-` syntax) and external events(such as Slack messaging app)
+- jobs: The separate jobs that workflow will execute
+
+```YAML
+name: Deployment pipeline
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  simple_deployment_pipeline:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16" #give a 'parameter' to the action
+      - name: npm install
+        run: npm install
+      - name: lint
+        run: npm run eslint
+      - name: build
+        run: npm run build
+      - name: test
+        run: npm run test
+      - name: e2e tests
+        uses: cypress-io/github-action@v2
+        with:
+          command: npm run test:e2e
+          start: npm run start-prod
+          wait-on: http://localhost:5000
+```
+
+27. Form submit event definition from TS official website:
+
+```javascript
+ onSubmit={(e: React.SyntheticEvent) => {
+    e.preventDefault();
+    const target = e.target as typeof e.target & {
+      email: { value: string };
+      password: { value: string };
+    };
+    const email = target.email.value; // typechecks!
+    const password = target.password.value; // typechecks!
+    // etc...
+  }}
+```
 
 ### Continued development
 
