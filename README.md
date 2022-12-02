@@ -409,6 +409,27 @@ jobs:
   }}
 ```
 
+28. the principles of making deployment safely and deploying software on both a small and large scale:
+
+- Our deployment system should be able to fail gracefully at any step of the deployment.
+- Our deployment system should never leave our software in a broken state.
+- Our deployment system should let us know when a failure has happened. It's more important to notify about failure than about success.
+- Our deployment system should allow us to roll back to a previous deployment
+
+  - Preferably this rollback should be easier to do and less prone to failure than a full deployment
+  - Of course, the best option would be an automatic rollback in case of deployment failures
+
+- Our deployment system should handle the situation where a user makes an HTTP request just before/during a deployment.
+- Our deployment system should make sure that the software we are deploying meets the requirements we have set for this (e.g. don't deploy if tests haven't been run).
+
+29. Versoning Strategy. `Semantic Versoning` and `Hash Versoning`.
+
+    - `Semantic Versoning` is in the form `{major}.{minor}.patch`.In general, changes that fix the functionality without changing how the application works from the outside are patchchanges, changes that make small changes to functionality (as viewed from the outside) are minorchanges and changes that completely change the application (or major functionality changes) are majorchanges. The definitions of each of these terms can vary from project to project.
+    - `Hash versioning (also sometimes known as SHA versioning)`.The version "number" in hash versioning is a hash (that looks like a random string) derived from the contents of the repository and the changes introduced in this commit. In git, this is already done for you as the commit hash that is unique for any change set.
+    - From the comparison above, it would seem that the semantic versioning makes sense for releasing software while hash-based versioning (or artifact naming) makes more sense during development. This doesn't necessarily cause a conflict.
+
+30. Collaborating with team.There are often intergrations between git and whatever project management/bug tracking software the team is using. Also there are integrations to various messaging applications such as `Slack` or `Discord` to send notifications.
+
 ### Continued development
 
 - ~~Load json data from backend~~
